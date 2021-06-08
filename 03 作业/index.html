@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+<script src="./js/Game.js"></script>
+<script src="./js/Snake.js"></script>
+<script src="./js/Food.js"></script>
+<script src="./js/Map.js"></script>
+<script src="./js/Block.js"></script>
+<script>
+// 在游戏中，要操作这些个元素，所以将这些对象实例出来，传递给Game
+// 渲染的容器
+var app = document.getElementById('app');
+// 地图
+var map = new Maps(600, 600, 20, 20, app);
+// 贪吃蛇
+var snake1 = new Snake(
+    ['./img/1.png', './img/2.png', './img/3.png', './img/4.png'],
+    './img/5.png',
+    ['./img/8.png', './img/9.png', './img/6.png', './img/7.png']
+);
+// 食物
+var food = new Food(2, 6, './img/food.jpg');
+// 障碍物
+var block = new Block('./img/block.png');
+// 游戏
+var game = new Game(map, snake1, food, block);
+// 游戏开始
+game.init();
+</script>
+</body>
+</html>
